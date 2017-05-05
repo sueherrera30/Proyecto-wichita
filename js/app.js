@@ -18,7 +18,7 @@ palabraPopoc.addEventListener('click',imagenPopoc);
 var cerrar = document.getElementById('cerrar');
 cerrar.addEventListener('click',close);
 //obtener la pizzara
-var imgPopoc = document.getElementById('img-popoc'); 
+var imgPopoc = document.getElementById('img-popoc');
 //
 // var arregloPalabras = [];
 var longitud = letra.length;
@@ -32,15 +32,24 @@ for(var i=0; i< longitud; i++){
 }
 
 function pintar(){
-	this.style.backgroundColor = "red";	
+	this.classList.add("bg-red");
+	verificarPalabra();
+}
+
+function verificarPalabra() {
+	var letrasSeleccionadas = document.getElementsByClassName("bg-red");
+	var palabraSeleccionada = "";
+	for (var i = 0, l = letrasSeleccionadas.length; i < l; i++) {
+		palabraSeleccionada += letrasSeleccionadas[i].textContent;
+	}
+	if (palabraSeleccionada.toUpperCase() === "POPOCATEPETL") {
+		imagenPopoc();
+	}
 }
 
 function imagenPopoc(){
-		imgPopoc.style.display = "block";	
+		imgPopoc.style.display = "block";
 }
 function close(){
-	imgPopoc.style.display = "none";	
+	imgPopoc.style.display = "none";
 }
-
-
-
